@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <table class="table table-responsive-sm">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Fecha de inicio</th>
+                <th scope="col">Fecha de termino</th>
+                <th scope="col">Descargar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let software of listaSoftware">
+                <th scope="row">{{software.Clave_Software}}</th>
+                <td>{{software.Nombre}}</td>
+                <td>{{software.Descripcion}}</td>
+                <td>{{software.Estado}}</td>
+                <td>{{software.Fecha_Inicio}}</td>
+                <td>{{software.Fecha_Termino}}</td>
+                <td *ngIf="software.Estado === 'Terminado'">
+                    <button class="btn btn-block btn-success">Descargar</button>
+                </td>
+                <td *ngIf="software.Estado !== 'Terminado'">
+                    <button class="btn btn-block btn-success disabled">Descargar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

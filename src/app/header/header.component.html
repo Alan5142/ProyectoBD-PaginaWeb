@@ -21,15 +21,22 @@
                 <a class="nav-link" routerLink=""> Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"> Ver todos los proyectos</a>
+                <a class="nav-link" routerLink="home/projects"> Ver todos los proyectos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="login">Iniciar sesión</a>
+                <a class="nav-link" routerLink="home/login">Iniciar sesión</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Nombre de proyecto" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar proyecto</button>
+            <input [name]="searchBar" [value]="buscar" id="searchForm"
+                   class="form-control mr-sm-2"
+                   type="search"
+                   placeholder="Nombre de proyecto"
+                   aria-label="Search" [(ngModel)]="buscar" [ngModelOptions]="{standalone: true}">
+            <button class="btn btn-outline-success my-2 my-sm-0"
+    
+                    [routerLink]="['home/search-projects/', this.buscar]">Buscar proyecto
+            </button>
         </form>
     </div>
 </nav>

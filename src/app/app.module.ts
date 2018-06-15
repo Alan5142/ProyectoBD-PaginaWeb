@@ -8,31 +8,29 @@ import {HeaderComponent} from './header/header.component';
 import {LoginComponent} from './login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 
-import {Routes, RouterModule} from '@angular/router';
-import {HomeComponent} from './home/home.component';
-
 import {FormsModule} from '@angular/forms';
-
-const routes: Routes = [
-    {path : '', redirectTo : 'home', pathMatch : 'full'},
-    {path : 'home', component : HomeComponent},
-    {path : 'login', component : LoginComponent}
-];
-
+import {ModuleRouting} from './app.routing';
+import {HomeComponent} from './home/home.component';
+import {NotFoundComponent} from './not-found/not-found.component';
+import {ShowProjectsComponent} from './show-projects/show-projects.component';
+import {FindProjectsComponent} from './find-projects/find-projects.component';
 
 @NgModule({
     declarations : [
         AppComponent,
         HeaderComponent,
         LoginComponent,
-        HomeComponent
+        HomeComponent,
+        NotFoundComponent,
+        ShowProjectsComponent,
+        FindProjectsComponent
     ],
     imports : [
         BrowserModule,
         NgbModule.forRoot(),
         HttpClientModule,
-        RouterModule.forRoot(routes, {useHash : true}),
-        FormsModule
+        FormsModule,
+        ModuleRouting
     ],
     providers : [],
     bootstrap : [AppComponent]

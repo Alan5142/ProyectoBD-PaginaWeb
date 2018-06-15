@@ -10,11 +10,22 @@
 
 .color-grey
 {
-    color: lightgrey;
+    color: darkgrey;
 }
 
 #home-background
 {
     position: fixed;
     height: 100%;
+}
+
+#home-form
+{
+    width:     400px;
+    height:    400px;
+    margin:    100px auto;
+    top:       50%;
+    left:      50%;
+    position:  absolute;
+    transform: translateX(-50%) translateY(-100%);
 }
