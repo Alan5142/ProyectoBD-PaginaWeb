@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-github">
     <a class="navbar-brand" href="#">
         <img src="https://78.media.tumblr.com/avatar_664e18a38f13_128.pnj"
-             width="50"
-             height="50"
-             class="d-inline-block align-top">
+             width="40"
+             height="40"
+             class="d-inline-block align-middle">
     </a>
     <button class="navbar-toggler"
             type="button"
@@ -18,23 +18,38 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" routerLink=""> Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-link" routerLink=""> Inicio <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink="home/projects"> Ver todos los proyectos</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" #loginButton>
                 <a class="nav-link" routerLink="home/login">Iniciar sesión</a>
             </li>
         </ul>
+    
+        <ul class="navbar-nav mr-auto" #perfilDiv>
+            <li class="nav-item">
+                <div class="">
+                    <a class="nav-link" routerLink="usuario/perfil"> <img class="align-middle"
+                                                                          src="https://a.wattpad.com/useravatar/Tako0w0.128.296881.jpg"
+                                                                          width="30"
+                                                                          height="30"> Perfil</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/" (click)="salir()">Salir</a>
+            </li>
+        </ul>
+    
+    
         <form class="form-inline my-2 my-lg-0">
-            <input [name]="searchBar" [value]="buscar" id="searchForm"
+            <input [name]="searchBar" [value]="false" id="searchForm"
                    class="form-control mr-sm-2"
                    type="search"
                    placeholder="Nombre de proyecto"
                    aria-label="Search" [(ngModel)]="buscar" [ngModelOptions]="{standalone: true}">
             <button class="btn btn-outline-success my-2 my-sm-0"
-    
                     [routerLink]="['home/search-projects/', this.buscar]">Buscar proyecto
             </button>
         </form>

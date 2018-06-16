@@ -14,6 +14,8 @@ import {HomeComponent} from './home/home.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {ShowProjectsComponent} from './show-projects/show-projects.component';
 import {FindProjectsComponent} from './find-projects/find-projects.component';
+import {PerfilComponent} from './perfil/perfil.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 
 @NgModule({
     declarations : [
@@ -23,7 +25,9 @@ import {FindProjectsComponent} from './find-projects/find-projects.component';
         HomeComponent,
         NotFoundComponent,
         ShowProjectsComponent,
-        FindProjectsComponent
+        FindProjectsComponent,
+        PerfilComponent,
+        DashboardComponent
     ],
     imports : [
         BrowserModule,
