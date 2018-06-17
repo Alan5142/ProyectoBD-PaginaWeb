@@ -1,0 +1,82 @@
+<div class="row" style="color: #FFF;">
+    <div class="col-md-4"></div>
+    
+    <div class="col-sm-12 col-md-4">
+        <form #loginForm="ngForm">
+            <div class="form-group">
+                <label for="userInput">Usuario</label>
+                <input type="text"
+                       class="form-control"
+                       id="userInput"
+                       placeholder="Usuario..."
+                       name="Usuario"
+                       maxlength="15"
+                       [(ngModel)]="perfilForm.Usuario">
+                
+                <label for="passwordInput">Contraseña</label>
+                <input type="password"
+                       class="form-control"
+                       id="passwordInput"
+                       placeholder="Contraseña..."
+                       name="Contrasena"
+                       [(ngModel)]="perfilForm.Contrasena">
+                
+                <label for="emailInput">Correo</label>
+                <input type="email"
+                       class="form-control"
+                       id="emailInput"
+                       placeholder="Correo..."
+                       name="Correo"
+                       [(ngModel)]="perfilForm.Correo">
+                
+                <label for="selectPuesto">Puesto</label>
+                <select class="custom-select" id="selectPuesto" [(ngModel)]="perfilForm.Puesto" name="puesto">
+                    <option value="Desarrollador">Desarrollador</option>
+                    <option value="RRHH">RRHH</option>
+                    <option value="Supervisor">Supervisor</option>
+                    <option value="Administrador">Administrador</option>
+                </select>
+                
+                <label for="selectGradoEstudios">Grado</label>
+                <select class="custom-select"
+                        id="selectGradoEstudios"
+                        [(ngModel)]="empleadoForm.Gdo_Estudios"
+                        name="gradoEstudios">
+                    <option value="Primaria">Primaria</option>
+                    <option value="Secundaria">Secundaria</option>
+                    <option value="Bachillerato">Bachillerato</option>
+                    <option value="Licenciatura">Licenciatura</option>
+                    <option value="Maestria">Maestria</option>
+                    <option value="Doctorado">Doctorado</option>
+                </select>
+                
+                
+                <label for="nombreInput">Nombre</label>
+                <input type="text"
+                       class="form-control"
+                       id="nombreInput"
+                       placeholder="Nombre..."
+                       name="Nombre"
+                       [(ngModel)]="empleadoForm.Nombre">
+                
+                <label for="nombreInput">Apellidos</label>
+                <input type="text"
+                       class="form-control"
+                       id="apellidosInput"
+                       placeholder="Apellidos..."
+                       name="apellidos"
+                       [(ngModel)]="empleadoForm.Apellidos">
+            </div>
+            <button type="submit"
+                    class="btn btn-success btn-block"
+                    [disabled]="!loginForm.form.valid"
+                    (click)="agregarUsuario()">
+                Agregar usuario
+            </button>
+        </form>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>

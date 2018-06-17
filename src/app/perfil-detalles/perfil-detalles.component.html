@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    
+    <div class="col-sm-12 col-md-4">
+        <form #loginForm="ngForm">
+            <div class="form-group">
+                <label for="userInput">Usuario</label>
+                <input type="text"
+                       class="form-control"
+                       id="userInput"
+                       placeholder="Usuario..."
+                       name="Usuario"
+                       maxlength="15"
+                       [(ngModel)]="usuario">
+                
+                <label for="passwordInput">Contraseña</label>
+                <input type="password"
+                       class="form-control"
+                       id="passwordInput"
+                       placeholder="Contraseña..."
+                       name="Contrasena"
+                       [(ngModel)]="contrasena">
+                
+                <label for="emailInput">Correo</label>
+                <input type="email"
+                       class="form-control"
+                       id="emailInput"
+                       placeholder="Correo..."
+                       name="Correo"
+                       [(ngModel)]="correo">
+                
+                <label for="selectPuesto">Puesto</label>
+                <select class="custom-select" id="selectPuesto" [(ngModel)]="puesto" name="puesto">
+                    <option value="Desarrollador">Desarrollador</option>
+                    <option value="RRHH">RRHH</option>
+                    <option value="Supervisor">Supervisor</option>
+                    <option value="Administrador">Administrador</option>
+                </select>
+            </div>
+            <button type="submit"
+                    (click)="editar()"
+                    class="btn btn-success btn-block"
+                    [disabled]="!loginForm.form.valid"
+            >
+                Editar usuario
+            </button>
+            
+            <button
+                (click)="eliminar()"
+                class="btn btn-danger btn-block">
+                Eliminar usuario
+            </button>
+        
+        </form>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>

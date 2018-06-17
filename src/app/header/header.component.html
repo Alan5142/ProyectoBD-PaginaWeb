@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-github">
     <a class="navbar-brand" href="#">
         <img src="https://78.media.tumblr.com/avatar_664e18a38f13_128.pnj"
-             width="40"
-             height="40"
+             width="35"
+             height="35"
              class="d-inline-block align-middle">
     </a>
     <button class="navbar-toggler"
@@ -18,13 +18,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" routerLink=""> Inicio <span class="sr-only"></span></a>
+                <a class="nav-link" routerLink=""> Inicio <span classperfilDiv="sr-only"></span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="home/projects"> Ver todos los proyectos</a>
+                <a class="nav-link" routerLink="home/projects"> Proyectos</a>
             </li>
             <li class="nav-item" #loginButton>
                 <a class="nav-link" routerLink="home/login">Iniciar sesión</a>
+            </li>
+            <li class="nav-item" #dashboard>
+                <a class="nav-link" routerLink="dashboard">Dashboard</a>
             </li>
         </ul>
     
@@ -34,7 +37,7 @@
                     <a class="nav-link" routerLink="usuario/perfil"> <img class="align-middle"
                                                                           src="https://a.wattpad.com/useravatar/Tako0w0.128.296881.jpg"
                                                                           width="30"
-                                                                          height="30"> Perfil</a>
+                                                                          height="30"> {{usuario}}</a>
                 </div>
             </li>
             <li class="nav-item">

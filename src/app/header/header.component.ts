@@ -11,7 +11,7 @@ import {environment} from '../../environments/environment';
 export class HeaderComponent implements OnInit, AfterViewInit
 {
     @Input()
-    buscar: string = '';
+    buscar = '';
     
     @ViewChild('loginButton')
     showLogin: ElementRef;
@@ -19,35 +19,33 @@ export class HeaderComponent implements OnInit, AfterViewInit
     @ViewChild('perfilDiv')
     perfilDiv: ElementRef;
     
+    @ViewChild('dashboard')
+    dashboard: ElementRef;
+    
+    usuario: string = localStorage.getItem('nombre');
+    
     constructor (private http: HttpClient, private rd: Renderer2)
     {
     
     }
     
     
-    checkToken ()
+    checkToken (data: any)
     {
-        if (!localStorage.getItem('token'))
+        if (data)
         {
-            console.log('xd');
+            this.showLogin.nativeElement.hidden = true;
+            this.perfilDiv.nativeElement.hidden = false;
+        } else
+        {
             this.showLogin.nativeElement.hidden = false;
             this.perfilDiv.nativeElement.hidden = true;
         }
-        
-        const headers = new HttpHeaders().set('Content-Type', 'application/json');
-        const obj = this.http.get('http://' + environment.ip + ':5050/api/auth/decode/' + localStorage.getItem('token'),
-            {headers : headers})
-                        .subscribe(data =>
-                        {
-                            console.log('dx');
-                            this.showLogin.nativeElement.hidden = true;
-                            this.perfilDiv.nativeElement.hidden = false;
-                        }, error =>
-                        {
-                            console.log('D:');
-                            this.showLogin.nativeElement.hidden = false;
-                            this.perfilDiv.nativeElement.hidden = true;
-                        });
+    }
+    
+    checkDashboard (data: any)
+    {
+        this.dashboard.nativeElement.hidden = !(data && data.puesto === 'Administrador');
     }
     
     ngOnInit ()
@@ -56,11 +54,24 @@ export class HeaderComponent implements OnInit, AfterViewInit
     
     ngAfterViewInit ()
     {
-        this.checkToken();
+        const headers = new HttpHeaders().set('Content-Type', 'application/json');
+        const obj = this.http.get('http://' + environment.ip + ':5050/api/auth/decode/' + localStorage.getItem('token'),
+            {headers : headers})
+                        .subscribe(data =>
+                        {
+                            this.checkToken(data);
+                            this.checkDashboard(data);
+                        }, error =>
+                        {
+                            this.checkToken(null);
+                            this.checkDashboard(null);
+                        });
     }
     
     salir ()
     {
         localStorage.clear();
     }
+    
+    
 }

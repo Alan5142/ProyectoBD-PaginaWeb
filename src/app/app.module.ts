@@ -16,6 +16,15 @@ import {ShowProjectsComponent} from './show-projects/show-projects.component';
 import {FindProjectsComponent} from './find-projects/find-projects.component';
 import {PerfilComponent} from './perfil/perfil.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {AgregarUsuarioComponent} from './agregar-usuario/agregar-usuario.component';
+import {CrearProyectoComponent} from './crear-proyecto/crear-proyecto.component';
+import {EditarProyectoComponent} from './editar-proyecto/editar-proyecto.component';
+import {EliminarPerfilComponent} from './eliminar-perfil/eliminar-perfil.component';
+import {EditarPerfilComponent} from './editar-perfil/editar-perfil.component';
+import {PerfilDetallesComponent} from './perfil-detalles/perfil-detalles.component';
+import {AsignarTareasComponent} from './asignar-tareas/asignar-tareas.component';
+import {EditarEmpleadoComponent} from './editar-empleado/editar-empleado.component';
+import {RegistrarEsComponent} from './registrar-es/registrar-es.component';
 
 @NgModule({
     declarations : [
@@ -27,7 +36,16 @@ import {DashboardComponent} from './dashboard/dashboard.component';
         ShowProjectsComponent,
         FindProjectsComponent,
         PerfilComponent,
-        DashboardComponent
+        DashboardComponent,
+        AgregarUsuarioComponent,
+        CrearProyectoComponent,
+        EditarProyectoComponent,
+        EliminarPerfilComponent,
+        EditarPerfilComponent,
+        PerfilDetallesComponent,
+        AsignarTareasComponent,
+        EditarEmpleadoComponent,
+        RegistrarEsComponent
     ],
     imports : [
         BrowserModule,

@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form>
+                <div class="form-group">
+                    <label for="perfilName" #perfilName>Nombre de perfil</label>
+                    <input type="text"
+                           class="form-control"
+                           id="perfilName"
+                           aria-describedby="emailHelp"
+                           placeholder="Perfil..."
+                           [(ngModel)]="perfilNameText"
+                           name="perfilName"
+                           (change)="filtrar()">
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <ngb-accordion class="text-center" [closeOthers]="true" activeIds="">
+        <ngb-panel *ngFor="let perfil of perfilesAMostrar" id="{{perfil.Usuario}}" title="{{perfil.Usuario}}">
+            <ng-template ngbPanelContent>
+                <div class="row" style="color: black;">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-7">
+                        <app-perfil-detalles usuario="{{perfil.Usuario}}"
+                                             correo="{{perfil.Correo}}"
+                                             contrasena=""
+                                             puesto="{{perfil.Puesto}}"
+                                             idEmpleado="{{perfil.Clave_Empleado}}"></app-perfil-detalles>
+                    </div>
+                </div>
+            
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+    <!--
+    <div class="row" *ngFor="let perfil of perfilesAMostrar">
+        <div class="col-md-4">
+        </div>
+    
+        <button type="button" class="btn btn-outline-success btn-block" (click)="perfil.activar = !perfil.activar"
+                [attr.aria-expanded]="!perfil.activar" aria-controls="a">
+            {{perfil.Usuario}}
+        </button>
+        <div class="col-md-5" [ngbCollapse]="perfil.activar"></div>
+        <div id="{{perfil.Usuario}}" class="col-md-7 col-12" [ngbCollapse]="perfil.activar">
+            <app-perfil-detalles usuario="{{perfil.Usuario}}"
+                                 correo="{{perfil.Correo}}"
+                                 contrasena=""
+                                 puesto="{{perfil.Puesto}}" idEmpleado="{{perfil.Clave_Empleado}}"></app-perfil-detalles>
+        </div>
+    </div>
+    -->
+</div>

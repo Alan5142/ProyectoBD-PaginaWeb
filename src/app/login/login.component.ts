@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {LoginForm} from './models/loginForm';
 import {environment} from '../../environments/environment';
 import {Router} from '@angular/router';
+import {RefreshTokenResponse} from './models/refreshToken';
 
 export interface LoginResponse
 {
@@ -30,6 +31,28 @@ export class LoginComponent
     {
     }
     
+    refrescarToken ()
+    {
+        const headers = new HttpHeaders().set('Content-Type', 'application/json');
+        
+        this.http.post<RefreshTokenResponse>('http://' + environment.ip + ':5050/api/auth/refreshToken',
+            {
+                Usuario : localStorage.getItem('nombre'),
+                Contrasena : localStorage.getItem('password'),
+                refreshToken : localStorage.getItem('refreshToken')
+            },
+            {headers : headers}).subscribe(data =>
+        {
+            localStorage.setItem('token', data.token);
+            //alert('Acceso autorizado');
+            this.refresh();
+            setInterval(this.refrescarToken(), 1000 * 60 * 5);
+        }, error =>
+        {
+            alert('No se pudo iniciar sesión');
+        });
+    }
+    
     IniciarSesion ()
     {
         const headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -40,8 +63,10 @@ export class LoginComponent
             localStorage.setItem('token', data.token);
             localStorage.setItem('refreshToken', data.refreshToken);
             localStorage.setItem('id', data.numUsuario + '');
-            alert('Acceso autorizado');
+            localStorage.setItem('nombre', data.usuario);
+            localStorage.setItem('password', this.LoginForm.Contrasena);
             this.refresh();
+            setInterval(this.refrescarToken(), 1000 * 60 * 5);
         }, error =>
         {
             alert('No se pudo iniciar sesión');
@@ -57,7 +82,7 @@ export class LoginComponent
     {
         this.zone.runOutsideAngular(() =>
         {
-            location.assign('/');
+            location.assign('/usuario/perfil');
         });
     }
 }

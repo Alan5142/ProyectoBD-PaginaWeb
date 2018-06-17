@@ -1,0 +1,94 @@
+<div class="row" style="color: #FFF">
+    <div class="col-md-4"></div>
+    
+    <div class="col-sm-12 col-md-4">
+        <form #loginForm="ngForm">
+            <div class="form-group">
+                <label for="nameInput">Nombre</label>
+                <input type="text"
+                       class="form-control"
+                       id="nameInput"
+                       placeholder="Nombre..."
+                       name="Nombre"
+                       [(ngModel)]="softwareForm.Nombre"
+                >
+                
+                <label for="descriptionInput">Descripcion</label>
+                <textarea class="form-control"
+                          id="descriptionInput"
+                          placeholder="Descripcion..."
+                          rows="3"
+                          name="descripcion"
+                          [(ngModel)]="softwareForm.Descripcion">
+              </textarea>
+                
+                <label for="selectFInicio">Fecha de Inicio</label>
+                <form class="form-inline" id="selectFInicio">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input readonly="readonly"
+                                   class="form-control"
+                                   placeholder="yyyy-mm-dd"
+                                   name="selectFInicio"
+                                   [(ngModel)]="model"
+                                   ngbDatepicker
+                                   #d="ngbDatepicker"
+                                   [(ngModel)]="softwareForm.Fecha_Inicio">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary"
+                                        (click)="d.toggle()"
+                                        type="button"
+                                        style="background-color: white">
+                                    <img src="https://image.flaticon.com/icons/svg/25/25393.svg"
+                                         style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+                <label for="selectFTermino">Fecha de Termino</label>
+                <form class="form-inline" id="selectFTermino">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input readonly="readonly"
+                                   class="form-control"
+                                   placeholder="yyyy-mm-dd"
+                                   name="selectFTermino"
+                                   [(ngModel)]="model2"
+                                   ngbDatepicker
+                                   #d2="ngbDatepicker"
+                                   [(ngModel)]="softwareForm.Fecha_Termino">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary"
+                                        (click)="d2.toggle()"
+                                        type="button"
+                                        style="background-color: white">
+                                    <img src="https://image.flaticon.com/icons/svg/25/25393.svg"
+                                         style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            
+            </div>
+            <button type="submit" class="btn btn-success btn-block" (click)="crearProyecto()">
+                Iniciar proyecto
+            </button>
+        </form>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    
+    </div>
+</div>
+

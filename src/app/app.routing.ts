@@ -24,10 +24,10 @@ const routes: Routes = [
         ]
     },
     {
-        path : 'dashboard', children[
+        path : 'dashboard', children : [
             {path : '', component : DashboardComponent}
         ]
-    }
+    },
     {path : '**', component : NotFoundComponent}
 ];
 

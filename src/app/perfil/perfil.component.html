@@ -1,0 +1,104 @@
+<div class="container-fluid h-100" style="position: fixed; height: 100%; background: #2B3137; overflow: auto;">
+    <ngb-tabset>
+        <ngb-tab title="Información">
+            <ng-template ngbTabContent>
+                <div class="row" style="color: #FFF">
+                    <div class="col-md-3"></div>
+                    <div class="col-4">
+                        <h5>Usuario: </h5>
+                        <h5>Correo: </h5>
+                        <h5>Puesto: </h5>
+                        <h5>Grado de estudios: </h5>
+                        <h5>Nombre: </h5>
+                    </div>
+                    <div class="col-4">
+                        <p>{{nombre}}</p>
+                        <p>{{usuario}}</p>
+                        <p>{{correo}}</p>
+                        <p>{{puesto}}</p>
+                        <p>{{gdo_estudios}}</p>
+                    </div>
+                </div>
+            </ng-template>
+        
+        </ngb-tab>
+        <ngb-tab>
+            <ng-template ngbTabTitle>Mis proyectos</ng-template>
+            <ng-template ngbTabContent>
+                
+                <table class="table table-responsive-sm" style="color: whitesmoke;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Tarea</th>
+                            <th scope="col">Fecha de inicio</th>
+                            <th scope="col">Fecha de termino</th>
+                            <th scope="col">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let software of listaSoftware">
+                            <td>{{software.Nombre}}</td>
+                            <td>{{software.Descripcion}}</td>
+                            <td>{{software.desarrollos[0].Tarea}}</td>
+                            <td>{{software.Fecha_Inicio}}</td>
+                            <td>{{software.Fecha_Termino}}</td>
+                            <td>{{software.Estado}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+            </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+            <ng-template ngbTabTitle>Editar información</ng-template>
+            <ng-template ngbTabContent>
+                <div class="row" style="color: #FFF">
+                    <div class="col-md-4"></div>
+                    
+                    <div class="col-sm-12 col-md-4">
+                        <form #loginForm="ngForm">
+                            <div class="form-group">
+                                <label for="passwordInput">Nueva contraseña</label>
+                                <input type="password"
+                                       class="form-control"
+                                       id="passwordInput"
+                                       placeholder="Contraseña..."
+                                       name="Contrasena"
+                                       minlength="6"
+                                       [(ngModel)]="datosForm.Contrasena">
+                            </div>
+                            <button type="submit" class="btn btn-success btn-block" (click)="cambiarDatos(content)"
+                                    [disabled]="!loginForm.form.valid">
+                                Cambiar datos
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-tab>
+    </ngb-tabset>
+    
+    <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4 class="modal-title">¿Estas seguro?</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>Asegurate de que los datos sean correctos antes de subir los cambios</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-danger btn-block" (click)="d('No')">
+                No
+            </button>
+            <button class="btn btn-success btn-block" (click)="d('Si')">
+                Si
+            </button>
+        </div>
+    </ng-template>
+
+
+</div>
