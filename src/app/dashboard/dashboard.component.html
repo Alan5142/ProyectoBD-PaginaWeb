@@ -2,7 +2,7 @@
     
     
     <ngb-tabset style="color: whitesmoke">
-        <ngb-tab title="Agregar usuario">
+        <ngb-tab title="Agregar usuario/Empleado">
             <ng-template ngbTabContent>
                 <app-agregar-usuario></app-agregar-usuario>
             </ng-template>
@@ -13,8 +13,8 @@
                 <app-crear-proyecto></app-crear-proyecto>
             </ng-template>
         </ngb-tab>
-        
-        <ngb-tab title="Editar perfil">
+    
+        <ngb-tab title="Editar/Eliminar perfil">
             <ng-template ngbTabContent>
                 <app-editar-perfil></app-editar-perfil>
             </ng-template>
@@ -37,12 +37,29 @@
                 <app-asignar-tareas></app-asignar-tareas>
             </ng-template>
         </ngb-tab>
-        
-        <ngb-tab title="Registrar entrada o salida">
+    
+        <ngb-tab title="Mostrar empleados">
             <ng-template ngbTabContent>
-                <app-registrar-es></app-registrar-es>
+                <app-informacion-empleado></app-informacion-empleado>
             </ng-template>
         </ngb-tab>
     
+        <ngb-tab title="Mostrar entradas/salidas">
+            <ng-template ngbTabContent>
+                <app-mostrar-es></app-mostrar-es>
+            </ng-template>
+        </ngb-tab>
+    
+        <ngb-tab title="Perfiles pasados">
+            <ng-template ngbTabContent>
+                <app-mostrar-perfiles-pasados></app-mostrar-perfiles-pasados>
+            </ng-template>
+        </ngb-tab>
+    
+        <ngb-tab title="Proyectos cancelados/retrasados">
+            <ng-template ngbTabContent>
+                <app-mostrar-cancelados-atrasados></app-mostrar-cancelados-atrasados>
+            </ng-template>
+        </ngb-tab>
     </ngb-tabset>
 </div>

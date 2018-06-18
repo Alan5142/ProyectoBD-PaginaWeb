@@ -22,6 +22,9 @@ export class HeaderComponent implements OnInit, AfterViewInit
     @ViewChild('dashboard')
     dashboard: ElementRef;
     
+    @ViewChild('imagenPerfil')
+    imagenPerfil: ElementRef;
+    
     usuario: string = localStorage.getItem('nombre');
     
     constructor (private http: HttpClient, private rd: Renderer2)
@@ -36,7 +39,8 @@ export class HeaderComponent implements OnInit, AfterViewInit
         {
             this.showLogin.nativeElement.hidden = true;
             this.perfilDiv.nativeElement.hidden = false;
-        } else
+        }
+        else
         {
             this.showLogin.nativeElement.hidden = false;
             this.perfilDiv.nativeElement.hidden = true;
@@ -45,7 +49,7 @@ export class HeaderComponent implements OnInit, AfterViewInit
     
     checkDashboard (data: any)
     {
-        this.dashboard.nativeElement.hidden = !(data && data.puesto === 'Administrador');
+        this.dashboard.nativeElement.hidden = !(data);
     }
     
     ngOnInit ()
@@ -54,7 +58,7 @@ export class HeaderComponent implements OnInit, AfterViewInit
     
     ngAfterViewInit ()
     {
-        const headers = new HttpHeaders().set('Content-Type', 'application/json');
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
         const obj = this.http.get('http://' + environment.ip + ':5050/api/auth/decode/' + localStorage.getItem('token'),
             {headers : headers})
                         .subscribe(data =>
@@ -66,6 +70,7 @@ export class HeaderComponent implements OnInit, AfterViewInit
                             this.checkToken(null);
                             this.checkDashboard(null);
                         });
+        this.imagenPerfil.nativeElement.src = 'http://' + environment.ip + ':5050/api/fotoPerfil/' + localStorage.getItem('id');
     }
     
     salir ()

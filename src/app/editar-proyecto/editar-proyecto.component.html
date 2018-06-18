@@ -15,10 +15,11 @@
                            id="numeroInput"
                            placeholder="Numero..."
                            name="Numero"
+                           [(ngModel)]="noProyectoFinalizar"
                     >
                 </div>
-                
-                <button type="submit" class="btn btn-success btn-block">
+    
+                <button type="submit" class="btn btn-success btn-block" (click)="finalizarProyecto()">
                     Terminar proyecto
                 </button>
             </div>
@@ -43,10 +44,14 @@
                            id="numeroInput1"
                            placeholder="Numero..."
                            name="Numero1"
+                           [(ngModel)]="proyectoIncidenciaForm.NoProyecto"
                     >
                     
                     <label for="selectEstado">Estado</label>
-                    <select class="custom-select" id="selectEstado" name="Estado">
+                    <select class="custom-select"
+                            id="selectEstado"
+                            name="Estado"
+                            [(ngModel)]="proyectoIncidenciaForm.Estado">
                         <option value="Cancelado">Cancelado</option>
                         <option value="Atrasado">Atrasado</option>
                     </select>
@@ -55,8 +60,14 @@
                     <form class="form-inline">
                         <div class="form-group">
                             <div class="input-group">
-                                <input readonly="readonly" class="form-control" placeholder="yyyy-mm-dd"
-                                       name="selectFTermino" ngbDatepicker #d="ngbDatepicker">
+                                <input #date type="date"
+                                       class="form-control"
+                                       placeholder="yyyy-mm-dd"
+                                       name="selectFTermino"
+                                       ngbDatepicker
+                                       id="selectFTermino"
+                                       #d="ngbDatepicker"
+                                       [(ngModel)]="proyectoIncidenciaForm.FechaTermino">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary"
                                             (click)="d.toggle()"
@@ -73,12 +84,13 @@
                     <label for="reasonInput">Razón</label>
                     <textarea class="form-control"
                               id="reasonInput"
-                    
+                              name="razon"
+                              [(ngModel)]="proyectoIncidenciaForm.Razon"
                               placeholder="Razón..."
                               rows="3"></textarea>
                 
                 </div>
-                <button type="submit" class="btn btn-success btn-block">
+                <button type="submit" class="btn btn-success btn-block" (click)="retrasarOCancelarProyecto()">
                     Actualizar Proyecto
                 </button>
             </div>

@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form>
+                <div class="form-group">
+                    <label for="perfilName" #perfilName>Nombre de empleado</label>
+                    <input type="text"
+                           class="form-control"
+                           id="perfilName"
+                           aria-describedby="emailHelp"
+                           placeholder="Perfil..."
+                           [(ngModel)]="nombreEmpleado"
+                           name="perfilName"
+                           (change)="filtrar()">
+                </div>
+            </form>
+        </div>
+        
+        <table class="table table-responsive-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nomina</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Grado de estudios</th>
+                    <th scope="col">Estatus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let empleado of listaEmpleadosAMostrar">
+                    <th scope="row">{{empleado.Nomina}}</th>
+                    <td>{{empleado.Nombre}}</td>
+                    <td>{{empleado.Apellidos}}</td>
+                    <td>{{empleado.Gdo_Estudios}}</td>
+                    <td>{{empleado.Estatus}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>

@@ -6,18 +6,19 @@
             <div class="form">
                 <div class="form-group">
                     <label for="nominaInput">Nómina de Empleado</label>
-                    <input type="text"
+                    <input type="number"
                            class="form-control"
                            id="nominaInput"
                            placeholder="Nomina..."
                            name="Nomina"
+                           [(ngModel)]="nomina"
                     >
                     
                     <label for="selectEstatus">Estatus</label>
                     <select class="custom-select"
-                            id="selectGradoEstudios"
-                            [(ngModel)]="empleadoForm.estatus"
-                            name="estatus">
+                            id="selectEstatus"
+                            name="estatus"
+                            [(ngModel)]="estatus">
                         <option value="Activo">Activo</option>
                         <option value="Inactivo">Inactivo</option>
                     </select>
@@ -25,8 +26,8 @@
                     <label for="selectGradoEstudios">Grado</label>
                     <select class="custom-select"
                             id="selectGradoEstudios"
-                            [(ngModel)]="empleadoForm.Gdo_Estudios"
-                            name="gradoEstudios">
+                            name="gradoEstudios"
+                            [(ngModel)]="grado">
                         <option value="Primaria">Primaria</option>
                         <option value="Secundaria">Secundaria</option>
                         <option value="Bachillerato">Bachillerato</option>
@@ -36,10 +37,14 @@
                     </select>
                 
                 </div>
-                <button type="submit" class="btn btn-success btn-block">
+                <button type="submit" class="btn btn-success btn-block" (click)="actualizarEmpleado()">
                     Actualizar empleado
                 </button>
             </div>
         </form>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
 </div>

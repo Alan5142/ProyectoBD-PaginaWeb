@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form>
+                <div class="form-group">
+                    <label for="projectName" #projectName>Proyecto</label>
+                    <input type="text"
+                           class="form-control"
+                           id="projectName"
+                           placeholder="Proyecto..."
+                           [(ngModel)]="nombre"
+                           name="projectName"
+                           (change)="filtrar()">
+                </div>
+            </form>
+        </div>
+        
+        <table class="table table-responsive-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Clave</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Puesto pasado</th>
+                    <th scope="col">Nombre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let perfilPasado of listaPPAMostrar">
+                    <th>{{perfilPasado.Clave}}</th>
+                    <td>{{perfilPasado.Usuario}}</td>
+                    <td>{{perfilPasado.puesto}}</td>
+                    <td>{{perfilPasado.Nombre + perfilPasado.Apellidos}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>

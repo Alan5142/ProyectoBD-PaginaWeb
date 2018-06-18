@@ -18,7 +18,7 @@ import {LoginResponse} from '../login/login.component';
 
 export class PerfilComponent implements OnInit
 {
-    usuario = 'asdasd';
+    usuario = '';
     correo = '';
     puesto = '';
     gdo_estudios = '';
@@ -26,6 +26,8 @@ export class PerfilComponent implements OnInit
     listaSoftware: SoftwareAsignado[];
     
     datosForm: DatosPerfilForm = new DatosPerfilForm();
+    
+    nuevaImagen: File;
     
     constructor (private http: HttpClient, private modalService: NgbModal)
     {
@@ -110,5 +112,28 @@ export class PerfilComponent implements OnInit
         }, error =>
         {
         });
+    }
+    
+    subirImagen ()
+    {
+        const formData: FormData = new FormData();
+        console.log(this.nuevaImagen);
+        formData.append('foto', this.nuevaImagen, this.nuevaImagen.name);
+        console.log(formData);
+        this.http.post('http://' + environment.ip + ':5050/api/private/fotos/' + localStorage.getItem(
+            'id') + '?token=' + localStorage.getItem('token') + '&perfil=true',
+            formData).subscribe(data =>
+        {
+            alert('subida con exito, recarga para ver los cambios');
+        }, error =>
+        {
+            console.log(error);
+        });
+    }
+    
+    onImageChange (event)
+    {
+        console.log(event);
+        this.nuevaImagen = event.target.files[0];
     }
 }

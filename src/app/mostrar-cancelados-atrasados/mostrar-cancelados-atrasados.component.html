@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <form>
+                <div class="form-group">
+                    <label for="projectName" #projectName>Proyecto</label>
+                    <input type="text"
+                           class="form-control"
+                           id="projectName"
+                           placeholder="Proyecto..."
+                           [(ngModel)]="nombre"
+                           name="projectName"
+                           (change)="filtrar()">
+                </div>
+            </form>
+        </div>
+        
+        <table class="table table-responsive-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Proyecto</th>
+                    <th scope="col">Cancelado/Atrasado</th>
+                    <th scope="col">Fecha de termino pasada</th>
+                    <th scope="col">Fecha nueva de termino</th>
+                    <th scope="col">Motivo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let software of listaCTAMostrar">
+                    <th>{{software.Nombre}}</th>
+                    <td>{{software.Estado}}</td>
+                    <td>{{software.Fecha_Ten_Termino}}</td>
+                    <td>{{software.Fecha_Termino}}</td>
+                    <td>{{software.Motivo}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>

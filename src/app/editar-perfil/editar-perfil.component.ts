@@ -26,7 +26,6 @@ export class EditarPerfilComponent implements OnInit
         const headers = new HttpHeaders().set('Content-Type', 'application/json');
         this.http.get<PerfilResponse>('http://' + environment.ip + ':5050/api/perfil', {headers : headers}).subscribe(data =>
         {
-            console.log(data.perfiles);
             this.perfilesTotales = data.perfiles;
             for (let i = 0; i < this.perfilesTotales.length; i++)
             {
@@ -43,7 +42,6 @@ export class EditarPerfilComponent implements OnInit
     
     filtrar ()
     {
-        console.log(this.perfilNameText);
         if (this.perfilNameText === '')
         {
             this.perfilesAMostrar = this.perfilesTotales;

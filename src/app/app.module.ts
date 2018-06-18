@@ -25,6 +25,10 @@ import {PerfilDetallesComponent} from './perfil-detalles/perfil-detalles.compone
 import {AsignarTareasComponent} from './asignar-tareas/asignar-tareas.component';
 import {EditarEmpleadoComponent} from './editar-empleado/editar-empleado.component';
 import {RegistrarEsComponent} from './registrar-es/registrar-es.component';
+import {InformacionEmpleadoComponent} from './informacion-empleado/informacion-empleado.component';
+import {MostrarEsComponent} from './mostrar-es/mostrar-es.component';
+import {MostrarPerfilesPasadosComponent} from './mostrar-perfiles-pasados/mostrar-perfiles-pasados.component';
+import {MostrarCanceladosAtrasadosComponent} from './mostrar-cancelados-atrasados/mostrar-cancelados-atrasados.component';
 
 @NgModule({
     declarations : [
@@ -45,7 +49,11 @@ import {RegistrarEsComponent} from './registrar-es/registrar-es.component';
         PerfilDetallesComponent,
         AsignarTareasComponent,
         EditarEmpleadoComponent,
-        RegistrarEsComponent
+        RegistrarEsComponent,
+        InformacionEmpleadoComponent,
+        MostrarEsComponent,
+        MostrarPerfilesPasadosComponent,
+        MostrarCanceladosAtrasadosComponent
     ],
     imports : [
         BrowserModule,

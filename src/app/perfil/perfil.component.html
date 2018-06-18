@@ -12,11 +12,11 @@
                         <h5>Nombre: </h5>
                     </div>
                     <div class="col-4">
-                        <p>{{nombre}}</p>
-                        <p>{{usuario}}</p>
-                        <p>{{correo}}</p>
-                        <p>{{puesto}}</p>
-                        <p>{{gdo_estudios}}</p>
+                        <h5>{{usuario}}</h5>
+                        <h5>{{correo}}</h5>
+                        <h5>{{puesto}}</h5>
+                        <h5>{{gdo_estudios}}</h5>
+                        <h5>{{nombre}}</h5>
                     </div>
                 </div>
             </ng-template>
@@ -73,9 +73,31 @@
                                     [disabled]="!loginForm.form.valid">
                                 Cambiar datos
                             </button>
+    
+                            <div class="form-group">
+                                <label for="imageInput">Cambiar imagen de perfil</label>
+                                <input type="file"
+                                       class="form-control"
+                                       id="imageInput"
+                                       placeholder="Imagen..."
+                                       name="imagen"
+                                       [(ngModel)]="nuevaImagen"
+                                       [multiple]="multiple"
+                                       (change)="onImageChange($event)"
+                                       accept="image/x-png,image/gif,image/jpeg">
+                            </div>
+                            <button type="submit" class="btn btn-success btn-block" (click)="subirImagen()">
+                                Subir imagen
+                            </button>
                         </form>
                     </div>
                 </div>
+            </ng-template>
+        </ngb-tab>
+    
+        <ngb-tab title="Registrar entrada/salida">
+            <ng-template ngbTabContent>
+                <app-registrar-es></app-registrar-es>
             </ng-template>
         </ngb-tab>
     </ngb-tabset>

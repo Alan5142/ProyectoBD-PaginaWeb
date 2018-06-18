@@ -1,0 +1,43 @@
+<div class="row" style="color: #FFF">
+    <div class="col-md-4"></div>
+    
+    <div class="col-sm-12 col-md-4">
+        <form #loginForm="ngForm">
+            <div class="form">
+                <div class="form-group">
+                    <label for="numeroInput">Usuario </label>
+                    <input type="number"
+                           min="1"
+                           class="form-control"
+                           id="numeroInput"
+                           placeholder="Usuario..."
+                           [(ngModel)]="Usuario"
+                           name="Usuario"
+                           (change)="filtrar()"
+                    >
+                </div>
+                <table class="table table-responsive-sm" style="color: whitesmoke;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">N° de Usuario</th>
+                            <th scope="col">Entrada/Salida</th>
+                            <th scope="col">Registro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let entrada_salida of listaESAMostrar">
+                            <td>{{entrada_salida.Perfil}}</td>
+                            <td>{{entrada_salida.Tipo}}</td>
+                            <td>{{entrada_salida.Registro}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>
+

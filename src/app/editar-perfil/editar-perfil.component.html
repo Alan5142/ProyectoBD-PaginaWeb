@@ -19,7 +19,9 @@
     </div>
     <br>
     <ngb-accordion class="text-center" [closeOthers]="true" activeIds="">
-        <ngb-panel *ngFor="let perfil of perfilesAMostrar" id="{{perfil.Usuario}}" title="{{perfil.Usuario}}">
+        <ngb-panel *ngFor="let perfil of perfilesAMostrar"
+                   id="{{perfil.Usuario}}"
+                   title="{{perfil.Usuario}}; Id: {{perfil.Clave_Empleado}}">
             <ng-template ngbPanelContent>
                 <div class="row" style="color: black;">
                     <div class="col-md-5"></div>
@@ -53,4 +55,8 @@
         </div>
     </div>
     -->
+    <br>
+    <br>
+    <br>
+    <br>
 </div>
