@@ -1,12 +1,11 @@
 export interface Proyecto
 {
-    Estado: string;
-    Fecha_Ten_Termino: Date;
-    Fecha_Termino: Date;
-    Motivo: string;
     Nombre: string;
+    Estado: string;
+    Fecha_Termino: Date;
+    Fecha_Ten_Termino: Date;
+    Motivo: string;
 }
-
 // Esto de aca abajo ya esta?
 export interface CSResponse
 {

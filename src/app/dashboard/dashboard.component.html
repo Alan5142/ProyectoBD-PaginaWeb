@@ -1,62 +1,62 @@
 <div class="container-fluid h-100" style="position: fixed; height: 100%; background: #2B3137; overflow: auto;">
     
     
-    <ngb-tabset style="color: whitesmoke">
+    <ngb-tabset style="color: whitesmoke" #agregarUsuario>
         <ngb-tab title="Agregar usuario/Empleado">
             <ng-template ngbTabContent>
                 <app-agregar-usuario></app-agregar-usuario>
             </ng-template>
         </ngb-tab>
         
-        <ngb-tab title="Agregar proyecto">
+        <ngb-tab title="Agregar proyecto" #agregarProyecto>
             <ng-template ngbTabContent>
                 <app-crear-proyecto></app-crear-proyecto>
             </ng-template>
         </ngb-tab>
-    
-        <ngb-tab title="Editar/Eliminar perfil">
+        
+        <ngb-tab title="Editar/Eliminar perfil" #editarPerfil>
             <ng-template ngbTabContent>
                 <app-editar-perfil></app-editar-perfil>
             </ng-template>
         </ngb-tab>
         
-        <ngb-tab title="Editar proyecto">
+        <ngb-tab title="Editar proyecto" #editarProyecto>
             <ng-template ngbTabContent>
                 <app-editar-proyecto></app-editar-proyecto>
             </ng-template>
         </ngb-tab>
         
-        <ngb-tab title="Editar empleado">
+        <ngb-tab title="Editar empleado" #editarEmpleado>
             <ng-template ngbTabContent>
                 <app-editar-empleado></app-editar-empleado>
             </ng-template>
         </ngb-tab>
         
-        <ngb-tab title="Asignar tareas">
+        <ngb-tab title="Asignar tareas" #asignarTareas>
             <ng-template ngbTabContent>
                 <app-asignar-tareas></app-asignar-tareas>
             </ng-template>
         </ngb-tab>
-    
-        <ngb-tab title="Mostrar empleados">
+        
+        <ngb-tab title="Mostrar empleados" #mostrarEmpleados>
             <ng-template ngbTabContent>
                 <app-informacion-empleado></app-informacion-empleado>
             </ng-template>
         </ngb-tab>
-    
-        <ngb-tab title="Mostrar entradas/salidas">
+        
+        <ngb-tab title="Mostrar entradas/salidas" #mostrarEntradasSalidas>
             <ng-template ngbTabContent>
                 <app-mostrar-es></app-mostrar-es>
             </ng-template>
         </ngb-tab>
-    
-        <ngb-tab title="Perfiles pasados">
+        
+        <ngb-tab title="Perfiles pasados" #perfilesPasados>
             <ng-template ngbTabContent>
                 <app-mostrar-perfiles-pasados></app-mostrar-perfiles-pasados>
             </ng-template>
         </ngb-tab>
-    
-        <ngb-tab title="Proyectos cancelados/retrasados">
+        
+        <ngb-tab title="Proyectos cancelados/retrasados" #canceladosTarde>
             <ng-template ngbTabContent>
                 <app-mostrar-cancelados-atrasados></app-mostrar-cancelados-atrasados>
             </ng-template>

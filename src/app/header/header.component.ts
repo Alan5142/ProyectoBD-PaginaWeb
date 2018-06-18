@@ -70,7 +70,20 @@ export class HeaderComponent implements OnInit, AfterViewInit
                             this.checkToken(null);
                             this.checkDashboard(null);
                         });
-        this.imagenPerfil.nativeElement.src = 'http://' + environment.ip + ':5050/api/fotoPerfil/' + localStorage.getItem('id');
+        console.log('http://' + environment.ip + ':5050/api/fotoPerfil/' + localStorage.getItem('id'));
+        this.http.get('http://' + environment.ip + ':5050/api/fotoPerfil/' + localStorage.getItem('id'))
+            .subscribe(data =>
+            {
+                console.log(data);
+                this.imagenPerfil.nativeElement.src = 'http://' + environment.ip + ':5050/api/fotoPerfil/' + localStorage.getItem('id');
+            }, error =>
+            {
+                if (error.statusText === 'OK')
+                {
+                    this.imagenPerfil.nativeElement.src = 'http://' + environment.ip + ':5050/api/fotoPerfil/' + localStorage.getItem('id');
+                }
+                console.log(error);
+            });
     }
     
     salir ()
