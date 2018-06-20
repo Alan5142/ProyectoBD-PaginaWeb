@@ -30,7 +30,6 @@
                                    class="form-control"
                                    placeholder="yyyy-mm-dd"
                                    name="selectFInicio"
-                                   [(ngModel)]="model"
                                    ngbDatepicker
                                    #d="ngbDatepicker"
                                    [(ngModel)]="softwareForm.Fecha_Inicio">
@@ -55,7 +54,6 @@
                                    class="form-control"
                                    placeholder="yyyy-mm-dd"
                                    name="selectFTermino"
-                                   [(ngModel)]="model2"
                                    ngbDatepicker
                                    #d2="ngbDatepicker"
                                    [(ngModel)]="softwareForm.Fecha_Termino">
@@ -71,7 +69,7 @@
                         </div>
                     </div>
                 </form>
-            
+                <br>
             </div>
             <button type="submit" class="btn btn-success btn-block" (click)="crearProyecto()">
                 Iniciar proyecto
