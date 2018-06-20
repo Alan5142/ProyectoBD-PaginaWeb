@@ -1,6 +1,6 @@
 # ProyectoBDPaginaWeb
 ## ¿Cómo ejecutar?
-Este proyecto esta hecho con Angular como framework MVC y con Bootstrap como framework CSS, para ejecutarlo:
+Este proyecto esta hecho utilizando Angular como framework MVC y con Bootstrap como framework CSS, para ejecutarlo:
 
 * Instalamos la consola angular mediante linea de comandos (requiere node.js): npm install -g @angular/cli
 * Instalamos las dependencias, desde la linea de comandos ejecutamos: npm install
